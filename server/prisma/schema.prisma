@@ -1,0 +1,251 @@
+// Prisma schema for Shop Management System
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// User model with roles
+model User {
+  id        String     @id @default(cuid())
+  name      String
+  email     String     @unique
+  password  String     // bcrypt hashed
+  role      Role       @default(CUSTOMER)
+  phone     String?
+  address   String?
+  
+  // Relations
+  shop      Shop?      @relation("CashierToShop")
+  shopId    String?
+  
+  quotations Quotation[]
+  sales      Sale[]
+  
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  
+  @@index([email])
+  @@index([role])
+}
+
+enum Role {
+  CUSTOMER
+  CASHIER
+  ADMIN
+}
+
+// Shop model for multi-shop support
+model Shop {
+  id        String     @id @default(cuid())
+  name      String
+  location  String
+  phone     String?
+  email     String?
+  
+  // Relations
+  cashiers  User[]     @relation("CashierToShop")
+  products  Product[]
+  inventory Inventory[]
+  sales     Sale[]
+  
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+// Product model
+model Product {
+  id        String     @id @default(cuid())
+  name      String
+  description String?
+  sku       String     @unique
+  price     Float      // Unit price
+  cost      Float?     // Cost price for profit calculation
+  category  String?
+  image     String?    // URL to image
+  
+  // Relations
+  shop      Shop       @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  shopId    String
+  
+  inventory Inventory[]
+  saleItems SaleItem[]
+  quotationItems QuotationItem[]
+  
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  
+  @@unique([shopId, sku])
+  @@index([shopId])
+  @@index([category])
+}
+
+// Inventory tracking
+model Inventory {
+  id        String     @id @default(cuid())
+  quantity  Int        @default(0)
+  reorderLevel Int     @default(5)
+  lastRestocked DateTime?
+  
+  // Relations
+  product   Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String
+  
+  shop      Shop       @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  shopId    String
+  
+  @@unique([productId, shopId])
+  @@index([productId])
+  @@index([shopId])
+}
+
+// Sales/Invoice
+model Sale {
+  id        String     @id @default(cuid())
+  invoiceNumber String  @unique
+  
+  // Relations
+  shop      Shop       @relation(fields: [shopId], references: [id])
+  shopId    String
+  
+  cashier   User       @relation(fields: [cashierId], references: [id])
+  cashierId String
+  
+  items     SaleItem[]
+  
+  // Totals
+  subtotal  Float      @default(0)
+  tax       Float      @default(0)
+  discount  Float      @default(0)
+  total     Float      @default(0)
+  
+  // Payment
+  paymentMethod PaymentMethod @default(CASH)
+  amountPaid Float?
+  change    Float?
+  status    SaleStatus @default(COMPLETED)
+  
+  createdAt DateTime   @default(now())
+  
+  @@index([shopId])
+  @@index([cashierId])
+  @@index([createdAt])
+}
+
+enum PaymentMethod {
+  CASH
+  CARD
+  BANK_TRANSFER
+  CHEQUE
+}
+
+enum SaleStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+  RETURNED
+}
+
+// Sale items (line items)
+model SaleItem {
+  id        String     @id @default(cuid())
+  
+  sale      Sale       @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  saleId    String
+  
+  product   Product    @relation(fields: [productId], references: [id])
+  productId String
+  
+  quantity  Int
+  unitPrice Float
+  total     Float      // quantity * unitPrice
+  
+  @@index([saleId])
+  @@index([productId])
+}
+
+// Quotations
+model Quotation {
+  id        String     @id @default(cuid())
+  quotationNumber String @unique
+  
+  customer  User       @relation(fields: [customerId], references: [id])
+  customerId String
+  
+  items     QuotationItem[]
+  
+  subtotal  Float      @default(0)
+  tax       Float      @default(0)
+  total     Float      @default(0)
+  
+  validUntil DateTime
+  status    QuotationStatus @default(PENDING)
+  notes     String?
+  
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  
+  @@index([customerId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+enum QuotationStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  EXPIRED
+  CONVERTED_TO_SALE
+}
+
+// Quotation items
+model QuotationItem {
+  id        String     @id @default(cuid())
+  
+  quotation Quotation  @relation(fields: [quotationId], references: [id], onDelete: Cascade)
+  quotationId String
+  
+  product   Product    @relation(fields: [productId], references: [id])
+  productId String
+  
+  quantity  Int
+  unitPrice Float
+  total     Float
+  
+  @@index([quotationId])
+  @@index([productId])
+}
+
+// Expenses
+model Expense {
+  id        String     @id @default(cuid())
+  
+  shop      Shop?      @relation(fields: [shopId], references: [id], onDelete: SetNull)
+  shopId    String?
+  
+  category  ExpenseCategory
+  description String
+  amount    Float
+  receipt   String?    // File URL
+  
+  createdAt DateTime   @default(now())
+  
+  @@index([shopId])
+  @@index([category])
+  @@index([createdAt])
+}
+
+enum ExpenseCategory {
+  SUPPLIES
+  UTILITIES
+  RENT
+  SALARY
+  TRANSPORTATION
+  MAINTENANCE
+  MARKETING
+  OTHER
+}

@@ -1,0 +1,398 @@
+{
+  "users": [
+    {
+      "id": "705ea6b5-9112-43a3-a188-71363804371b",
+      "name": "Admin",
+      "email": "admin@vb.co.bw",
+      "passwordHash": "$2a$08$Bpu3a88oSahdHLAGkTTfrO.7QfKWrLJLObBl.TC9xA/1sfmhYiv6y",
+      "role": "admin"
+    },
+    {
+      "id": "2e9e3562-b04b-4559-a3f8-1d651d8b3945",
+      "name": "PHATSIMO",
+      "email": "phatsimo@vb.co.bw",
+      "passwordHash": "$2a$08$aCbfrla/L1GhfrHx89kbXuDZozO0nErBnwfWp9Qp1IDTeBwQw.NVy",
+      "role": "user",
+      "createdAt": "2026-01-27T13:40:55.497Z"
+    }
+  ],
+  "customers": [],
+  "employees": [
+    {
+      "id": "b3a43ce1-6895-42c9-b51f-ccafe48aaab1",
+      "firstName": "LUCKY KATLEGO",
+      "lastName": "LUCKY KATLEGO CHINAYE",
+      "email": "lchinaye@gmail.com",
+      "phone": "74787780",
+      "address": "Broadhurst Ext 27 Plot 7203",
+      "hireDate": "1997-12-31",
+      "position": "",
+      "department": "IT",
+      "salary": 400000,
+      "hourlyRate": 0,
+      "payType": "salary",
+      "taxId": "",
+      "bankAccount": "ACCESS BANK",
+      "emergencyContact": {
+        "name": "",
+        "phone": "",
+        "relationship": ""
+      },
+      "status": "active",
+      "createdAt": "2026-01-27T13:19:44.157Z",
+      "updatedAt": "2026-01-27T13:19:44.157Z"
+    }
+  ],
+  "payroll": [],
+  "bankAccounts": [],
+  "bankTransactions": [],
+  "chartOfAccounts": [],
+  "expenses": [],
+  "inventory": [
+    {
+      "name": "HP LaserJet Toner - Black",
+      "sku": "LP-TONER-HP",
+      "price": 89.99,
+      "qty": 50,
+      "category": "Toners & Cartridges",
+      "description": "Original HP toner cartridge",
+      "image": "/images/hp-05a-black-original-laserjet-toner-cartridge-500x500.jpeg",
+      "id": "5313ec71-55eb-438e-8a71-a19e8e6ced79",
+      "available": true,
+      "shopId": "default-shop"
+    },
+    {
+      "name": "Laser Toner - Generic",
+      "sku": "LP-TONER-GEN",
+      "price": 45.99,
+      "qty": 75,
+      "category": "Toners & Cartridges",
+      "description": "Compatible toner cartridge",
+      "image": "/images/test-toner7.jpg",
+      "id": "34bf4bd4-3a6f-48ed-bf43-6b32d174dd3f",
+      "available": true,
+      "shopId": "default-shop"
+    },
+    {
+      "name": "Premium Toner Set",
+      "sku": "TONER-SET-1",
+      "price": 159.99,
+      "qty": 34,
+      "category": "Toners & Cartridges",
+      "description": "Multi-pack toner cartridges",
+      "image": "/images/toner4.png",
+      "id": "118dde7f-69c5-40bf-bafe-4fa3c5538725",
+      "available": true,
+      "shopId": "default-shop"
+    },
+    {
+      "name": "Color Toner Cartridge",
+      "sku": "LP-TONER-COL",
+      "price": 72.5,
+      "qty": 44,
+      "category": "Toners & Cartridges",
+      "description": "Color laser toner for printers",
+      "image": "/images/toner3.webp",
+      "id": "277eeb78-ebb0-47db-8569-418e793e3fb2",
+      "available": true,
+      "shopId": "default-shop"
+    },
+    {
+      "name": "Office Table - Cherry Wood",
+      "sku": "FURN-TABLE-1",
+      "price": 299.99,
+      "qty": 30,
+      "category": "Office Furniture",
+      "description": "Premium office table",
+      "image": "/images/table1.png",
+      "id": "2be4bb5d-8d6c-4358-b900-6775ea0b6026",
+      "available": true,
+      "shopId": "default-shop"
+    },
+    {
+      "name": "Office Table - Modern Design",
+      "sku": "FURN-TABLE-2",
+      "price": 349.99,
+      "qty": 25,
+      "category": "Office Furniture",
+      "description": "Contemporary office table",
+      "image": "/images/table2.png",
+      "id": "97c79495-385b-486e-9a13-e7fb71cb62b1",
+      "available": true,
+      "shopId": "default-shop"
+    },
+    {
+      "name": "Office Chair - Ergonomic",
+      "sku": "FURN-CHAIR-1",
+      "price": 189.99,
+      "qty": 40,
+      "category": "Office Furniture",
+      "description": "Ergonomic office chair",
+      "image": "/images/pos.jpg",
+      "id": "70ea1281-8247-4bef-82df-79547925f084",
+      "available": true,
+      "shopId": "default-shop"
+    },
+    {
+      "name": "Stationery Bundle - Mixed",
+      "sku": "STAT-BUNDLE-1",
+      "price": 29.99,
+      "qty": 200,
+      "category": "Stationery",
+      "description": "Complete stationery set",
+      "image": "/images/stationary.png",
+      "id": "3ec752f3-5866-4594-b9af-e1ba802afee1",
+      "available": true,
+      "shopId": "default-shop"
+    },
+    {
+      "name": "Wireless Keyboard & Mouse Combo",
+      "sku": "COMP-KM-WL",
+      "price": 49.99,
+      "qty": 85,
+      "category": "Computer Electronics",
+      "description": "Professional wireless input devices",
+      "image": "/images/toner2.jpg",
+      "id": "995e4620-acac-4ce8-bab0-240cff4c0b38",
+      "available": true,
+      "shopId": "default-shop"
+    },
+    {
+      "name": "USB-C Hub - 7 Port",
+      "sku": "COMP-HUB-7",
+      "price": 64.99,
+      "qty": 60,
+      "category": "Computer Electronics",
+      "description": "Multi-port USB-C hub for laptops",
+      "image": "/images/toner1.png",
+      "id": "165b6858-d739-482d-a3eb-fe7b0921f146",
+      "available": true,
+      "shopId": "default-shop"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Toners & Cartridges"
+    },
+    {
+      "id": "cat-2",
+      "name": "Office Furniture"
+    },
+    {
+      "id": "cat-3",
+      "name": "Stationery"
+    },
+    {
+      "id": "cat-4",
+      "name": "Computer Electronics"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "859aa24d-2f63-4942-a50f-4ddd9e72a004",
+      "userId": "705ea6b5-9112-43a3-a188-71363804371b",
+      "items": [
+        {
+          "itemId": "5313ec71-55eb-438e-8a71-a19e8e6ced79",
+          "name": "HP LaserJet Toner - Black",
+          "price": 89.99,
+          "qty": 1
+        },
+        {
+          "itemId": "34bf4bd4-3a6f-48ed-bf43-6b32d174dd3f",
+          "name": "Laser Toner - Generic",
+          "price": 45.99,
+          "qty": 1
+        },
+        {
+          "itemId": "118dde7f-69c5-40bf-bafe-4fa3c5538725",
+          "name": "Premium Toner Set",
+          "price": 159.99,
+          "qty": 1
+        },
+        {
+          "itemId": "277eeb78-ebb0-47db-8569-418e793e3fb2",
+          "name": "Color Toner Cartridge",
+          "price": 72.5,
+          "qty": 1
+        },
+        {
+          "itemId": "2be4bb5d-8d6c-4358-b900-6775ea0b6026",
+          "name": "Office Table - Cherry Wood",
+          "price": 299.99,
+          "qty": 1
+        }
+      ],
+      "notes": "",
+      "total": 668.46,
+      "status": "converted",
+      "createdAt": "2026-01-08T02:28:55.475Z"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "d53eef20-9190-41a0-b47c-89aa2cf36e10",
+      "quoteId": "859aa24d-2f63-4942-a50f-4ddd9e72a004",
+      "userId": "705ea6b5-9112-43a3-a188-71363804371b",
+      "items": [
+        {
+          "itemId": "5313ec71-55eb-438e-8a71-a19e8e6ced79",
+          "name": "HP LaserJet Toner - Black",
+          "price": 89.99,
+          "qty": 1
+        },
+        {
+          "itemId": "34bf4bd4-3a6f-48ed-bf43-6b32d174dd3f",
+          "name": "Laser Toner - Generic",
+          "price": 45.99,
+          "qty": 1
+        },
+        {
+          "itemId": "118dde7f-69c5-40bf-bafe-4fa3c5538725",
+          "name": "Premium Toner Set",
+          "price": 159.99,
+          "qty": 1
+        },
+        {
+          "itemId": "277eeb78-ebb0-47db-8569-418e793e3fb2",
+          "name": "Color Toner Cartridge",
+          "price": 72.5,
+          "qty": 1
+        },
+        {
+          "itemId": "2be4bb5d-8d6c-4358-b900-6775ea0b6026",
+          "name": "Office Table - Cherry Wood",
+          "price": 299.99,
+          "qty": 1
+        }
+      ],
+      "total": 668.46,
+      "createdAt": "2026-01-08T02:29:02.654Z",
+      "status": "unpaid"
+    }
+  ],
+  "shops": [
+    {
+      "id": "default-shop",
+      "name": "Main Store",
+      "location": "Gaborone",
+      "parentShopId": null,
+      "sharedInventory": false
+    },
+    {
+      "id": "9d943ca4-d366-4d94-be03-dfb22c4c6d9f",
+      "name": "variation b",
+      "location": "store",
+      "parentShopId": null,
+      "sharedInventory": false
+    },
+    {
+      "id": "509a335b-2b1e-4d87-9f5a-4c6e514b75d4",
+      "name": "vb 2",
+      "location": "bbs",
+      "parentShopId": "default-shop",
+      "sharedInventory": true
+    }
+  ],
+  "userShops": [
+    {
+      "userId": "705ea6b5-9112-43a3-a188-71363804371b",
+      "shopId": "default-shop",
+      "role": "admin"
+    }
+  ],
+  "sales": [
+    {
+      "id": "VB-INV-001",
+      "invoiceNumber": "VB-INV-001",
+      "shopId": "default-shop",
+      "cashierId": "705ea6b5-9112-43a3-a188-71363804371b",
+      "items": [
+        {
+          "id": "277eeb78-ebb0-47db-8569-418e793e3fb2",
+          "name": "Color Toner Cartridge",
+          "sku": "LP-TONER-COL",
+          "price": 72.5,
+          "qty": 0,
+          "total": 72.5
+        }
+      ],
+      "subtotal": 0,
+      "tax": 8.7,
+      "total": 8.700000000000003,
+      "paymentMethod": "CASH",
+      "amountPaid": 99.99,
+      "change": 18.789999999999992,
+      "customerId": null,
+      "customerName": null,
+      "customerPhone": null,
+      "isCredit": false,
+      "approvalId": null,
+      "notes": "",
+      "status": "COMPLETED",
+      "createdAt": "2026-01-28T20:03:50.678Z",
+      "updatedAt": "2026-01-28T20:08:00.598Z"
+    },
+    {
+      "id": "VB-INV-001",
+      "invoiceNumber": "VB-INV-001",
+      "shopId": "default-shop",
+      "cashierId": "705ea6b5-9112-43a3-a188-71363804371b",
+      "items": [
+        {
+          "id": "277eeb78-ebb0-47db-8569-418e793e3fb2",
+          "name": "Color Toner Cartridge",
+          "sku": "LP-TONER-COL",
+          "price": 72.5,
+          "qty": 1,
+          "total": 72.5
+        },
+        {
+          "id": "118dde7f-69c5-40bf-bafe-4fa3c5538725",
+          "name": "Premium Toner Set",
+          "sku": "TONER-SET-1",
+          "price": 159.99,
+          "qty": 1,
+          "total": 159.99
+        }
+      ],
+      "subtotal": 232.49,
+      "tax": 27.8988,
+      "total": 260.3888,
+      "includeTax": true,
+      "paymentMethod": "CASH",
+      "amountPaid": 278.9988,
+      "change": 18.610000000000014,
+      "customerId": null,
+      "customerName": null,
+      "customerPhone": null,
+      "isCredit": false,
+      "approvalId": null,
+      "notes": "",
+      "status": "COMPLETED",
+      "createdAt": "2026-01-28T20:26:05.118Z",
+      "updatedAt": "2026-01-28T20:26:05.119Z"
+    }
+  ],
+  "quotations": [],
+  "creditTransactions": [],
+  "voidReturns": [
+    {
+      "id": "a5fc4d5a-ef5d-4980-889d-aa95cbe7ae6a",
+      "saleId": "VB-INV-001",
+      "type": "RETURN",
+      "items": [
+        {
+          "id": "277eeb78-ebb0-47db-8569-418e793e3fb2",
+          "qty": 1,
+          "price": 72.5
+        }
+      ],
+      "amount": 72.5,
+      "reason": "not the one",
+      "approvedBy": "705ea6b5-9112-43a3-a188-71363804371b",
+      "createdAt": "2026-01-28T20:08:00.598Z"
+    }
+  ]
+}

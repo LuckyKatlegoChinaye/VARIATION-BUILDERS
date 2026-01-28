@@ -10,7 +10,8 @@
     "seed": "node seed.js",
     "migrate": "prisma migrate dev",
     "studio": "prisma studio",
-    "reset": "prisma migrate reset --force && npm run seed"
+    "reset": "prisma migrate reset --force && npm run seed",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.8.0",

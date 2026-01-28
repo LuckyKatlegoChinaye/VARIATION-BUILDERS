@@ -8,10 +8,10 @@
     "start": "node server.js",
     "dev": "node server.js",
     "seed": "node seed.js",
-    "migrate": "prisma migrate dev",
-    "studio": "prisma studio",
-    "reset": "prisma migrate reset --force && npm run seed",
-    "postinstall": "prisma generate"
+    "migrate": "npx prisma migrate dev",
+    "studio": "npx prisma studio",
+    "reset": "npx prisma migrate reset --force && npm run seed",
+    "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.8.0",

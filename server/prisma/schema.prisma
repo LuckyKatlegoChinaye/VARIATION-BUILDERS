@@ -20,7 +20,7 @@ model User {
   address   String?
   
   // Relations
-  shop      Shop?      @relation("CashierToShop", fields: [shopId], references: [id])
+  shop      Shop?      @relation("CashierToShop")
   shopId    String?
   
   quotations Quotation[]
@@ -52,7 +52,6 @@ model Shop {
   products  Product[]
   inventory Inventory[]
   sales     Sale[]
-  expenses  Expense[]
   
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt

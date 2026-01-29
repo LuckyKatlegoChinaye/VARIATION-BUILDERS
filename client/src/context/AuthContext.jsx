@@ -1,8 +1,7 @@
 import { createContext, useContext, useReducer, useCallback } from 'react';
-import axios from 'axios';
+import apiClient from '../utils/apiClient';
 
 const AuthContext = createContext();
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
 
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -44,7 +43,7 @@ export const AuthProvider = ({ children }) => {
   const register = useCallback(async (name, email, password, phone, address) => {
     dispatch({ type: 'LOGIN_START' });
     try {
-      const response = await axios.post(`${API_URL}/auth/register`, {
+      const response = await apiClient.post('/auth/register', {
         name,
         email,
         password,
@@ -66,7 +65,7 @@ export const AuthProvider = ({ children }) => {
   const login = useCallback(async (email, password) => {
     dispatch({ type: 'LOGIN_START' });
     try {
-      const response = await axios.post(`${API_URL}/auth/login`, {
+      const response = await apiClient.post('/auth/login', {
         email,
         password
       });
@@ -88,14 +87,9 @@ export const AuthProvider = ({ children }) => {
 
   const updateProfile = useCallback(async (name, phone, address) => {
     try {
-      const response = await axios.put(
-        `${API_URL}/auth/update-profile`,
-        { name, phone, address },
-        {
-          headers: {
-            Authorization: `Bearer ${state.token}`
-          }
-        }
+      const response = await apiClient.put(
+        '/auth/update-profile',
+        { name, phone, address }
       );
       dispatch({ type: 'SET_USER', payload: response.data.user });
       return { success: true };
@@ -103,7 +97,7 @@ export const AuthProvider = ({ children }) => {
       const message = error.response?.data?.message || 'Update failed';
       return { success: false, error: message };
     }
-  }, [state.token]);
+  }, []);
 
   const value = {
     ...state,

@@ -37,20 +37,14 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    // For demo/mock, allow any password for now to test the system
-    // In production, properly verify with bcrypt
     let passwordMatch = false;
     
-    // Hardcoded demo credentials
-    if (email === 'admin@vb.co.bw' && password === '4040@M') {
-      passwordMatch = true;
-    } else if (email === 'cashier1@example.com' && password === 'cashier123') {
-      passwordMatch = true;
-    } else if (user.passwordHash) {
-      // Try bcrypt verification for other users
+    // Verify password using bcrypt
+    if (user.passwordHash) {
       try {
         passwordMatch = await bcryptjs.compare(password, user.passwordHash);
       } catch (err) {
+        console.error('Password verification error:', err);
         passwordMatch = false;
       }
     }
